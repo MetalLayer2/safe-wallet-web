@@ -15,7 +15,7 @@ import { toBeHex } from 'ethers'
 import {
   Gnosis_safe__factory,
   Proxy_factory__factory,
-} from '@/types/contracts/factories/@safe-global/safe-deployments/dist/assets/v1.3.0'
+} from '@/types/contracts/factories/@metalblockchain/safe-deployments/dist/assets/v1.3.0'
 import {
   getReadOnlyFallbackHandlerContract,
   getReadOnlyGnosisSafeContract,
@@ -34,7 +34,7 @@ import {
   getSafeL2SingletonDeployment,
   getSafeSingletonDeployment,
   getSafeToL2SetupDeployment,
-} from '@safe-global/safe-deployments'
+} from '@metalblockchain/safe-deployments'
 import { Safe_to_l2_setup__factory } from '@/types/contracts'
 
 const provider = new JsonRpcProvider(undefined, { name: 'ethereum', chainId: 1 })

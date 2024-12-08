@@ -22,7 +22,7 @@ import {
   getSafeL2SingletonDeployment,
   getSafeSingletonDeployment,
   getSafeToL2MigrationDeployment,
-} from '@safe-global/safe-deployments'
+} from '@metalblockchain/safe-deployments'
 import type Safe from '@safe-global/protocol-kit'
 import { encodeMultiSendData } from '@safe-global/protocol-kit'
 import { Multi_send__factory, Safe_to_l2_migration__factory } from '@/types/contracts'

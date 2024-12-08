@@ -443,7 +443,7 @@ const SafeLicenses = () => (
               </TableCell>
             </TableRow>
             <TableRow>
-              <TableCell>@safe-global/safe-deployments</TableCell>
+              <TableCell>@metalblockchain/safe-deployments</TableCell>
               <TableCell>
                 <ExternalLink href="https://github.com/safe-global/safe-deployments/blob/main/LICENSE">
                   https://github.com/safe-global/safe-deployments/blob/main/LICENSE

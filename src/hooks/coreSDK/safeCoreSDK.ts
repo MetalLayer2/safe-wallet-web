@@ -1,6 +1,6 @@
 import chains from '@/config/chains'
 import type { UndeployedSafe } from '@/features/counterfactual/store/undeployedSafesSlice'
-import { getSafeSingletonDeployments, getSafeL2SingletonDeployments } from '@safe-global/safe-deployments'
+import { getSafeSingletonDeployments, getSafeL2SingletonDeployments } from '@metalblockchain/safe-deployments'
 import ExternalStore from '@/services/ExternalStore'
 import { Gnosis_safe__factory } from '@/types/contracts'
 import { invariant } from '@/utils/helpers'

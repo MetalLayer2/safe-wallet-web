@@ -10,7 +10,7 @@ import {
   getSafeSingletonDeployments,
   getSafeToL2MigrationDeployments,
   getSafeToL2SetupDeployments,
-} from '@safe-global/safe-deployments'
+} from '@metalblockchain/safe-deployments'
 import type { ChainInfo } from '@safe-global/safe-gateway-typescript-sdk'
 
 const SUPPORTED_VERSIONS: SafeVersion[] = ['1.4.1', '1.3.0']

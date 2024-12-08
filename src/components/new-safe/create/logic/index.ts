@@ -20,7 +20,7 @@ import {
   getSafeL2SingletonDeployment,
   getSafeSingletonDeployment,
   getSafeToL2SetupDeployment,
-} from '@safe-global/safe-deployments'
+} from '@metalblockchain/safe-deployments'
 import { ECOSYSTEM_ID_ADDRESS } from '@/config/constants'
 import type { ReplayedSafeProps, UndeployedSafeProps } from '@/store/slices'
 import { activateReplayedSafe, isPredictedSafeProps } from '@/features/counterfactual/utils'

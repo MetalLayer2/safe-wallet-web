@@ -32,7 +32,7 @@ import { useEstimateSafeCreationGas } from '@/components/new-safe/create/useEsti
 import useIsWrongChain from '@/hooks/useIsWrongChain'
 import NetworkWarning from '@/components/new-safe/create/NetworkWarning'
 import CheckWallet from '@/components/common/CheckWallet'
-import { getSafeToL2SetupDeployment } from '@safe-global/safe-deployments'
+import { getSafeToL2SetupDeployment } from '@metalblockchain/safe-deployments'
 
 const useActivateAccount = (undeployedSafe: UndeployedSafe | undefined) => {
   const chain = useCurrentChain()
@@ -51,10 +51,10 @@ const useActivateAccount = (undeployedSafe: UndeployedSafe | undefined) => {
 
   const options: DeploySafeProps['options'] = isEIP1559
     ? {
-        maxFeePerGas: maxFeePerGas?.toString(),
-        maxPriorityFeePerGas: maxPriorityFeePerGas?.toString(),
-        gasLimit: gasLimit?.toString(),
-      }
+      maxFeePerGas: maxFeePerGas?.toString(),
+      maxPriorityFeePerGas: maxPriorityFeePerGas?.toString(),
+      gasLimit: gasLimit?.toString(),
+    }
     : { gasPrice: maxFeePerGas?.toString(), gasLimit: gasLimit?.toString() }
 
   const totalFee = getTotalFeeFormatted(maxFeePerGas, gasLimit, chain)

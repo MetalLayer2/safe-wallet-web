@@ -29,7 +29,7 @@ import {
   TokenType,
 } from '@safe-global/safe-gateway-typescript-sdk'
 import type { BrowserProvider, ContractTransactionResponse, Eip1193Provider, Provider } from 'ethers'
-import { getSafeL2SingletonDeployments, getSafeSingletonDeployments } from '@safe-global/safe-deployments'
+import { getSafeL2SingletonDeployments, getSafeSingletonDeployments } from '@metalblockchain/safe-deployments'
 import { sameAddress } from '@/utils/addresses'
 
 import { encodeSafeCreationTx } from '@/components/new-safe/create/logic'
@@ -349,12 +349,12 @@ export const extractCounterfactualSafeSetup = (
   chainId: string | undefined,
 ):
   | {
-      owners: string[]
-      threshold: number
-      fallbackHandler: string | undefined
-      safeVersion: SafeVersion | undefined
-      saltNonce: string | undefined
-    }
+    owners: string[]
+    threshold: number
+    fallbackHandler: string | undefined
+    safeVersion: SafeVersion | undefined
+    saltNonce: string | undefined
+  }
   | undefined => {
   if (!undeployedSafe || !chainId || !undeployedSafe.props.safeAccountConfig) {
     return undefined

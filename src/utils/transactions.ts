@@ -38,7 +38,7 @@ import { isMultiSendCalldata } from './transaction-calldata'
 import { decodeMultiSendData } from '@safe-global/protocol-kit/dist/src/utils'
 import { __unsafe_createMultiSendTx } from '@/services/tx/tx-sender'
 import { getOriginPath } from './url'
-import { getSafeToL2MigrationDeployment } from '@safe-global/safe-deployments'
+import { getSafeToL2MigrationDeployment } from '@metalblockchain/safe-deployments'
 
 export const makeTxFromDetails = (txDetails: TransactionDetails): Transaction => {
   const getMissingSigners = ({
