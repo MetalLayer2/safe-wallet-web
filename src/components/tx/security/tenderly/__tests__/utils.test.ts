@@ -42,12 +42,12 @@ describe('simulation utils', () => {
 
     jest.spyOn(Web3, 'getWeb3ReadOnly').mockImplementation(
       () =>
-      ({
-        getBlock: () =>
-          Promise.resolve({
-            gasLimit: BigInt(30_000_000),
-          }),
-      } as any),
+        ({
+          getBlock: () =>
+            Promise.resolve({
+              gasLimit: BigInt(30_000_000),
+            }),
+        } as any),
     )
   })
   describe('getSimulationPayload', () => {

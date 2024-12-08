@@ -85,9 +85,9 @@ describe('useDeployGasLimit hook', () => {
       }),
       getChainId: jest.fn(),
       getContractManager: () =>
-      ({
-        contractNetworks: {},
-      } as any),
+        ({
+          contractNetworks: {},
+        } as any),
       getContractVersion: () => Promise.resolve('1.3.0'),
       createSafeDeploymentTransaction: () =>
         Promise.resolve({

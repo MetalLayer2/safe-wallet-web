@@ -210,7 +210,8 @@ export const prepareTxExecution = async (safeTransaction: SafeTransaction, provi
   if (threshold > signedSafeTransaction.signatures.size) {
     const signaturesMissing = threshold - signedSafeTransaction.signatures.size
     throw new Error(
-      `There ${signaturesMissing > 1 ? 'are' : 'is'} ${signaturesMissing} signature${signaturesMissing > 1 ? 's' : ''
+      `There ${signaturesMissing > 1 ? 'are' : 'is'} ${signaturesMissing} signature${
+        signaturesMissing > 1 ? 's' : ''
       } missing`,
     )
   }

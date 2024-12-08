@@ -162,23 +162,23 @@ describe('getTokenAllowanceForDelegate', () => {
 
     jest.spyOn(web3, 'getWeb3ReadOnly').mockImplementation(
       () =>
-      ({
-        call: (tx: { data: string; to: string }) => {
-          {
-            const decimalsSigHash = keccak256(toUtf8Bytes('decimals()')).slice(0, 10)
-            const symbolSigHash = keccak256(toUtf8Bytes('symbol()')).slice(0, 10)
+        ({
+          call: (tx: { data: string; to: string }) => {
+            {
+              const decimalsSigHash = keccak256(toUtf8Bytes('decimals()')).slice(0, 10)
+              const symbolSigHash = keccak256(toUtf8Bytes('symbol()')).slice(0, 10)
 
-            if (tx.data.startsWith(decimalsSigHash)) {
-              return ERC20__factory.createInterface().encodeFunctionResult('decimals', [10])
+              if (tx.data.startsWith(decimalsSigHash)) {
+                return ERC20__factory.createInterface().encodeFunctionResult('decimals', [10])
+              }
+              if (tx.data.startsWith(symbolSigHash)) {
+                return ERC20__factory.createInterface().encodeFunctionResult('symbol', ['TST'])
+              }
             }
-            if (tx.data.startsWith(symbolSigHash)) {
-              return ERC20__factory.createInterface().encodeFunctionResult('symbol', ['TST'])
-            }
-          }
-        },
-        _isProvider: true,
-        resolveName: (name: string) => name,
-      } as any),
+          },
+          _isProvider: true,
+          resolveName: (name: string) => name,
+        } as any),
     )
 
     const mockContract = { getTokenAllowance: getTokenAllowanceMock } as unknown as AllowanceModule
