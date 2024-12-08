@@ -26,10 +26,12 @@ declare module '@mui/material/Button' {
   }
 }
 
+declare module '@metalblockchain/safe-protocol-kit' { }
+
 declare module '*.svg' {
   const content: any
   export const ReactComponent: React.FC<React.SVGProps<SVGSVGElement>>
   export default content
 }
 
-export {}
+export { }
