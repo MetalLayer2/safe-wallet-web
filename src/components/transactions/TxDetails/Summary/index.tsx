@@ -10,7 +10,7 @@ import css from './styles.module.css'
 import type { SafeTransaction, SafeTransactionData, SafeVersion } from '@safe-global/safe-core-sdk-types'
 import SafeTxGasForm from '../SafeTxGasForm'
 import DecodedData from '../TxData/DecodedData'
-import { calculateSafeTransactionHash } from '@safe-global/protocol-kit/dist/src/utils'
+import { calculateSafeTransactionHash } from '@metalblockchain/safe-protocol-kit/dist/src/utils'
 import useSafeInfo from '@/hooks/useSafeInfo'
 import { SafeTxHashDataRow } from './SafeTxHashDataRow'
 import { logError, Errors } from '@/services/exceptions'
@@ -34,7 +34,7 @@ const Summary = ({ txDetails, defaultExpanded = false, hideDecodedData = false }
   let safeTxData: SafeTransactionData | undefined = undefined
   let submittedAt, confirmations, safeTxHash, baseGas, gasPrice, gasToken, refundReceiver, safeTxGas, nonce
   if (isMultisigDetailedExecutionInfo(detailedExecutionInfo)) {
-    ;({ submittedAt, confirmations, safeTxHash, baseGas, gasPrice, gasToken, safeTxGas, nonce } = detailedExecutionInfo)
+    ; ({ submittedAt, confirmations, safeTxHash, baseGas, gasPrice, gasToken, safeTxGas, nonce } = detailedExecutionInfo)
     refundReceiver = detailedExecutionInfo.refundReceiver?.value
     if (txData) {
       safeTxData = {

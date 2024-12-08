@@ -1,6 +1,6 @@
-import { generatePreValidatedSignature } from '@safe-global/protocol-kit/dist/src/utils/signatures'
-import EthSafeTransaction from '@safe-global/protocol-kit/dist/src/utils/transactions/SafeTransaction'
-import { encodeMultiSendData } from '@safe-global/protocol-kit/dist/src/utils/transactions/utils'
+import { generatePreValidatedSignature } from '@metalblockchain/safe-protocol-kit/dist/src/utils/signatures'
+import EthSafeTransaction from '@metalblockchain/safe-protocol-kit/dist/src/utils/transactions/SafeTransaction'
+import { encodeMultiSendData } from '@metalblockchain/safe-protocol-kit/dist/src/utils/transactions/utils'
 import { type SafeInfo, type ChainInfo } from '@safe-global/safe-gateway-typescript-sdk'
 import type { MetaTransactionData, SafeTransaction } from '@safe-global/safe-core-sdk-types'
 

@@ -25,9 +25,9 @@ import { KnownContracts, getModuleInstance } from '@gnosis.pm/zodiac'
 import useWallet from '@/hooks/wallets/useWallet'
 import { useHasFeature } from '@/hooks/useChains'
 import { FEATURES } from '@/utils/chains'
-import { encodeMultiSendData } from '@safe-global/protocol-kit'
+import { encodeMultiSendData } from '@metalblockchain/safe-protocol-kit'
 import { Multi_send__factory } from '@/types/contracts'
-import { decodeMultiSendData } from '@safe-global/protocol-kit/dist/src/utils'
+import { decodeMultiSendData } from '@metalblockchain/safe-protocol-kit/dist/src/utils'
 
 const ROLES_V2_SUPPORTED_CHAINS = Object.keys(chains)
 const multiSendInterface = Multi_send__factory.createInterface()
@@ -54,7 +54,7 @@ export const useMetaTransactions = (safeTx?: SafeTransaction): MetaTransactionDa
         if (baseTransactions.length > 0) {
           return baseTransactions.map((tx) => ({ ...tx, operation: OperationType.Call }))
         }
-      } catch (e) {}
+      } catch (e) { }
     }
 
     return [metaTx]

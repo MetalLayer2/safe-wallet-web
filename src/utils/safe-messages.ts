@@ -1,6 +1,6 @@
 import { getBytes, hashMessage, type TypedDataDomain, type JsonRpcSigner } from 'ethers'
 import { gte } from 'semver'
-import { adjustVInSignature } from '@safe-global/protocol-kit/dist/src/utils/signatures'
+import { adjustVInSignature } from '@metalblockchain/safe-protocol-kit/dist/src/utils/signatures'
 
 import { hashTypedData } from '@/utils/web3'
 import { isValidAddress } from './validation'
@@ -62,9 +62,9 @@ export const generateSafeMessageTypedData = (
   return {
     domain: isHandledByFallbackHandler
       ? {
-          chainId,
-          verifyingContract: address.value,
-        }
+        chainId,
+        verifyingContract: address.value,
+      }
       : { verifyingContract: address.value },
     types: {
       SafeMessage: [{ name: 'message', type: 'bytes' }],

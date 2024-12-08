@@ -1,6 +1,6 @@
 import { Interface } from 'ethers'
 import { getSafeSingletonDeployment } from '@metalblockchain/safe-deployments'
-import { SENTINEL_ADDRESS } from '@safe-global/protocol-kit/dist/src/utils/constants'
+import { SENTINEL_ADDRESS } from '@metalblockchain/safe-protocol-kit/dist/src/utils/constants'
 import { OperationType } from '@safe-global/safe-core-sdk-types'
 import { sameAddress } from '@/utils/addresses'
 import { getModuleInstance, KnownContracts } from '@gnosis.pm/zodiac'

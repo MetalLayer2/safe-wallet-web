@@ -1,6 +1,6 @@
 import { setSafeSDK } from '@/hooks/coreSDK/safeCoreSDK'
-import type Safe from '@safe-global/protocol-kit'
-import type { MultiSendCallOnlyContractImplementationType } from '@safe-global/protocol-kit'
+import type Safe from '@metalblockchain/safe-protocol-kit'
+import type { MultiSendCallOnlyContractImplementationType } from '@metalblockchain/safe-protocol-kit'
 import { type TransactionDetails } from '@safe-global/safe-gateway-typescript-sdk'
 import { getTransactionDetails } from '@safe-global/safe-gateway-typescript-sdk'
 import extractTxInfo from '../../extractTxInfo'
@@ -34,7 +34,7 @@ const setupFetchStub = (data: any) => () => {
   })
 }
 import { toBeHex } from 'ethers'
-import { generatePreValidatedSignature } from '@safe-global/protocol-kit/dist/src/utils/signatures'
+import { generatePreValidatedSignature } from '@metalblockchain/safe-protocol-kit/dist/src/utils/signatures'
 import { createMockSafeTransaction } from '@/tests/transactions'
 import { MockEip1193Provider } from '@/tests/mocks/providers'
 import { SimpleTxWatcher } from '@/utils/SimpleTxWatcher'
@@ -239,7 +239,7 @@ describe('txSender', () => {
     })
 
     it('should fail to propose a signature', async () => {
-      ;(proposeTx as jest.Mock).mockImplementationOnce(() => Promise.reject(new Error('error')))
+      ; (proposeTx as jest.Mock).mockImplementationOnce(() => Promise.reject(new Error('error')))
 
       const tx = await createTx({
         to: '0x123',
@@ -258,7 +258,7 @@ describe('txSender', () => {
     })
 
     it('should fail to propose a new tx', async () => {
-      ;(proposeTx as jest.Mock).mockImplementationOnce(() => Promise.reject(new Error('error')))
+      ; (proposeTx as jest.Mock).mockImplementationOnce(() => Promise.reject(new Error('error')))
 
       const tx = await createTx({
         to: '0x123',
@@ -341,7 +341,7 @@ describe('txSender', () => {
     })
 
     it('should iterate over each signing method on newer Safes', async () => {
-      ;(mockSafeSDK.signTransaction as jest.Mock).mockImplementationOnce(() => Promise.reject(new Error('error'))) // `eth_signTypedData` fails
+      ; (mockSafeSDK.signTransaction as jest.Mock).mockImplementationOnce(() => Promise.reject(new Error('error'))) // `eth_signTypedData` fails
 
       const tx = await createTx({
         to: '0x123',
@@ -364,7 +364,7 @@ describe('txSender', () => {
     })
 
     it('should not iterate over the sequential signing method if the previous threw a rejection error', async () => {
-      ;(mockSafeSDK.signTransaction as jest.Mock).mockImplementationOnce(() => Promise.reject(new Error('rejected'))) // `eth_signTypedData` fails
+      ; (mockSafeSDK.signTransaction as jest.Mock).mockImplementationOnce(() => Promise.reject(new Error('rejected'))) // `eth_signTypedData` fails
 
       const tx = await createTx({
         to: '0x123',
@@ -396,7 +396,7 @@ describe('txSender', () => {
     })
 
     it('should throw the non-rejection error if it is the final signing method', async () => {
-      ;(mockSafeSDK.signTransaction as jest.Mock)
+      ; (mockSafeSDK.signTransaction as jest.Mock)
         .mockImplementationOnce(() => Promise.reject(new Error('error'))) // `eth_signTypedData` fails
         .mockImplementationOnce(() => Promise.reject(new Error('failure-specific error'))) // `eth_sign` fails
 
