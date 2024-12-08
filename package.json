@@ -38,7 +38,7 @@
   },
   "resolutions": {
     "@safe-global/safe-core-sdk-types/**/ethers": "^6.11.1",
-    "@safe-global/protocol-kit/**/ethers": "^6.11.1",
+    "@metalblockchain/safe-protocol-kit/**/ethers": "^6.11.1",
     "@safe-global/api-kit/**/ethers": "^6.11.1",
     "@gnosis.pm/zodiac/**/ethers": "^6.11.1"
   },
