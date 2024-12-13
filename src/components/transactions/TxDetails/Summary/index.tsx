@@ -34,7 +34,7 @@ const Summary = ({ txDetails, defaultExpanded = false, hideDecodedData = false }
   let safeTxData: SafeTransactionData | undefined = undefined
   let submittedAt, confirmations, safeTxHash, baseGas, gasPrice, gasToken, refundReceiver, safeTxGas, nonce
   if (isMultisigDetailedExecutionInfo(detailedExecutionInfo)) {
-    ; ({ submittedAt, confirmations, safeTxHash, baseGas, gasPrice, gasToken, safeTxGas, nonce } = detailedExecutionInfo)
+    ;({ submittedAt, confirmations, safeTxHash, baseGas, gasPrice, gasToken, safeTxGas, nonce } = detailedExecutionInfo)
     refundReceiver = detailedExecutionInfo.refundReceiver?.value
     if (txData) {
       safeTxData = {

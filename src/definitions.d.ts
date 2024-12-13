@@ -26,7 +26,7 @@ declare module '@mui/material/Button' {
   }
 }
 
-declare module '@safe-global/protocol-kit' { }
+declare module '@safe-global/protocol-kit' {}
 
 declare module '*.svg' {
   const content: any
@@ -34,4 +34,4 @@ declare module '*.svg' {
   export default content
 }
 
-export { }
+export {}

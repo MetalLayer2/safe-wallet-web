@@ -12,13 +12,13 @@ import { ZERO_ADDRESS } from '@safe-global/protocol-kit/dist/src/utils/constants
 
 const setupFetchStub =
   (data: any, status: number = 200) =>
-    () => {
-      return Promise.resolve({
-        json: () => Promise.resolve(data),
-        status,
-        ok: status === 200,
-      })
-    }
+  () => {
+    return Promise.resolve({
+      json: () => Promise.resolve(data),
+      status,
+      ok: status === 200,
+    })
+  }
 
 describe('_getRedeemDeadline', () => {
   const mockProvider = {
@@ -76,13 +76,13 @@ describe('Allocations', () => {
 
     jest.spyOn(useSafeInfoHook, 'default').mockImplementation(
       () =>
-      ({
-        safeAddress: toBeHex('0x2', 20),
-        safe: {
-          address: toBeHex('0x2', 20),
-          chainId: '1',
-        },
-      } as any),
+        ({
+          safeAddress: toBeHex('0x2', 20),
+          safe: {
+            address: toBeHex('0x2', 20),
+            chainId: '1',
+          },
+        } as any),
     )
   })
 
@@ -90,13 +90,13 @@ describe('Allocations', () => {
     it('should return undefined without safe address', async () => {
       jest.spyOn(useSafeInfoHook, 'default').mockImplementation(
         () =>
-        ({
-          safeAddress: undefined,
-          safe: {
-            address: undefined,
-            chainId: '1',
-          },
-        } as any),
+          ({
+            safeAddress: undefined,
+            safe: {
+              address: undefined,
+              chainId: '1',
+            },
+          } as any),
       )
 
       const { result } = renderHook(() => useSafeTokenAllocation())
@@ -151,26 +151,26 @@ describe('Allocations', () => {
 
       jest.spyOn(web3, 'getWeb3ReadOnly').mockImplementation(
         () =>
-        ({
-          call: (transaction: any) => {
-            const vestingsSigHash = keccak256(toUtf8Bytes('vestings(bytes32)')).slice(0, 10)
-            const redeemDeadlineSigHash = keccak256(toUtf8Bytes('redeemDeadline()')).slice(0, 10)
+          ({
+            call: (transaction: any) => {
+              const vestingsSigHash = keccak256(toUtf8Bytes('vestings(bytes32)')).slice(0, 10)
+              const redeemDeadlineSigHash = keccak256(toUtf8Bytes('redeemDeadline()')).slice(0, 10)
 
-            if (transaction.data?.startsWith(vestingsSigHash)) {
-              return Promise.resolve(
-                AbiCoder.defaultAbiCoder().encode(
-                  ['address', 'uint8', 'bool', 'uint16', 'uint64', 'uint128', 'uint128', 'uint64', 'bool'],
-                  [ZERO_ADDRESS, '0x1', false, 208, 1657231200, 2000, 0, 0, false],
-                ),
-              )
-            }
-            if (transaction.data?.startsWith(redeemDeadlineSigHash)) {
-              // 30th Nov 2022
-              return Promise.resolve(AbiCoder.defaultAbiCoder().encode(['uint64'], [1669766400]))
-            }
-            return Promise.resolve('0x')
-          },
-        } as any),
+              if (transaction.data?.startsWith(vestingsSigHash)) {
+                return Promise.resolve(
+                  AbiCoder.defaultAbiCoder().encode(
+                    ['address', 'uint8', 'bool', 'uint16', 'uint64', 'uint128', 'uint128', 'uint64', 'bool'],
+                    [ZERO_ADDRESS, '0x1', false, 208, 1657231200, 2000, 0, 0, false],
+                  ),
+                )
+              }
+              if (transaction.data?.startsWith(redeemDeadlineSigHash)) {
+                // 30th Nov 2022
+                return Promise.resolve(AbiCoder.defaultAbiCoder().encode(['uint64'], [1669766400]))
+              }
+              return Promise.resolve('0x')
+            },
+          } as any),
       )
 
       const { result } = renderHook(() => useSafeTokenAllocation())
@@ -210,26 +210,26 @@ describe('Allocations', () => {
 
       jest.spyOn(web3, 'getWeb3ReadOnly').mockImplementation(
         () =>
-        ({
-          call: (transaction: any) => {
-            const vestingsSigHash = keccak256(toUtf8Bytes('vestings(bytes32)')).slice(0, 10)
-            const redeemDeadlineSigHash = keccak256(toUtf8Bytes('redeemDeadline()')).slice(0, 10)
+          ({
+            call: (transaction: any) => {
+              const vestingsSigHash = keccak256(toUtf8Bytes('vestings(bytes32)')).slice(0, 10)
+              const redeemDeadlineSigHash = keccak256(toUtf8Bytes('redeemDeadline()')).slice(0, 10)
 
-            if (transaction.data?.startsWith(vestingsSigHash)) {
-              return Promise.resolve(
-                AbiCoder.defaultAbiCoder().encode(
-                  ['address', 'uint8', 'bool', 'uint16', 'uint64', 'uint128', 'uint128', 'uint64', 'bool'],
-                  [toBeHex('0x2', 20), '0x1', false, 208, 1657231200, 2000, 0, 0, false],
-                ),
-              )
-            }
-            if (transaction.data?.startsWith(redeemDeadlineSigHash)) {
-              // 08.Dec 2200
-              return Promise.resolve(AbiCoder.defaultAbiCoder().encode(['uint64'], [7287610110]))
-            }
-            return Promise.resolve('0x')
-          },
-        } as any),
+              if (transaction.data?.startsWith(vestingsSigHash)) {
+                return Promise.resolve(
+                  AbiCoder.defaultAbiCoder().encode(
+                    ['address', 'uint8', 'bool', 'uint16', 'uint64', 'uint128', 'uint128', 'uint64', 'bool'],
+                    [toBeHex('0x2', 20), '0x1', false, 208, 1657231200, 2000, 0, 0, false],
+                  ),
+                )
+              }
+              if (transaction.data?.startsWith(redeemDeadlineSigHash)) {
+                // 08.Dec 2200
+                return Promise.resolve(AbiCoder.defaultAbiCoder().encode(['uint64'], [7287610110]))
+              }
+              return Promise.resolve('0x')
+            },
+          } as any),
       )
 
       const { result } = renderHook(() => useSafeTokenAllocation())
@@ -262,13 +262,13 @@ describe('Allocations', () => {
     it('should return undefined without safe address', async () => {
       jest.spyOn(useSafeInfoHook, 'default').mockImplementation(
         () =>
-        ({
-          safeAddress: undefined,
-          safe: {
-            address: undefined,
-            chainId: '1',
-          },
-        } as any),
+          ({
+            safeAddress: undefined,
+            safe: {
+              address: undefined,
+              chainId: '1',
+            },
+          } as any),
       )
 
       const { result } = renderHook(() => useSafeVotingPower([{} as Vesting]))
@@ -282,20 +282,20 @@ describe('Allocations', () => {
     it('should return total balance of tokens held and tokens in locking contract if no allocation exists', async () => {
       jest.spyOn(web3, 'getWeb3ReadOnly').mockImplementation(
         () =>
-        ({
-          call: (transaction: any) => {
-            const balanceOfSigHash = keccak256(toUtf8Bytes('balanceOf(address)')).slice(0, 10)
-            const lockingBalanceSigHash = keccak256(toUtf8Bytes('getUserTokenBalance(address)')).slice(0, 10)
+          ({
+            call: (transaction: any) => {
+              const balanceOfSigHash = keccak256(toUtf8Bytes('balanceOf(address)')).slice(0, 10)
+              const lockingBalanceSigHash = keccak256(toUtf8Bytes('getUserTokenBalance(address)')).slice(0, 10)
 
-            if (transaction.data?.startsWith(balanceOfSigHash)) {
-              return Promise.resolve('0x' + parseEther('100').toString(16))
-            }
-            if (transaction.data?.startsWith(lockingBalanceSigHash)) {
-              return Promise.resolve('0x' + parseEther('100').toString(16))
-            }
-            return Promise.resolve('0x')
-          },
-        } as any),
+              if (transaction.data?.startsWith(balanceOfSigHash)) {
+                return Promise.resolve('0x' + parseEther('100').toString(16))
+              }
+              if (transaction.data?.startsWith(lockingBalanceSigHash)) {
+                return Promise.resolve('0x' + parseEther('100').toString(16))
+              }
+              return Promise.resolve('0x')
+            },
+          } as any),
       )
 
       const { result } = renderHook(() => useSafeVotingPower())
@@ -308,20 +308,20 @@ describe('Allocations', () => {
     test('formula: allocation - claimed + token balance + locking balance', async () => {
       jest.spyOn(web3, 'getWeb3ReadOnly').mockImplementation(
         () =>
-        ({
-          call: (transaction: any) => {
-            const balanceOfSigHash = keccak256(toUtf8Bytes('balanceOf(address)')).slice(0, 10)
-            const lockingBalanceSigHash = keccak256(toUtf8Bytes('getUserTokenBalance(address)')).slice(0, 10)
+          ({
+            call: (transaction: any) => {
+              const balanceOfSigHash = keccak256(toUtf8Bytes('balanceOf(address)')).slice(0, 10)
+              const lockingBalanceSigHash = keccak256(toUtf8Bytes('getUserTokenBalance(address)')).slice(0, 10)
 
-            if (transaction.data?.startsWith(balanceOfSigHash)) {
-              return Promise.resolve('0x' + BigInt('400').toString(16))
-            }
-            if (transaction.data?.startsWith(lockingBalanceSigHash)) {
-              return Promise.resolve('0x' + BigInt('200').toString(16))
-            }
-            return Promise.resolve('0x')
-          },
-        } as any),
+              if (transaction.data?.startsWith(balanceOfSigHash)) {
+                return Promise.resolve('0x' + BigInt('400').toString(16))
+              }
+              if (transaction.data?.startsWith(lockingBalanceSigHash)) {
+                return Promise.resolve('0x' + BigInt('200').toString(16))
+              }
+              return Promise.resolve('0x')
+            },
+          } as any),
       )
 
       const mockAllocation: Vesting[] = [
@@ -353,20 +353,20 @@ describe('Allocations', () => {
     test('formula: allocation - claimed + token balance + locking balance, everything claimed and no balance', async () => {
       jest.spyOn(web3, 'getWeb3ReadOnly').mockImplementation(
         () =>
-        ({
-          call: (transaction: any) => {
-            const balanceOfSigHash = keccak256(toUtf8Bytes('balanceOf(address)')).slice(0, 10)
-            const lockingBalanceSigHash = keccak256(toUtf8Bytes('getUserTokenBalance(address)')).slice(0, 10)
+          ({
+            call: (transaction: any) => {
+              const balanceOfSigHash = keccak256(toUtf8Bytes('balanceOf(address)')).slice(0, 10)
+              const lockingBalanceSigHash = keccak256(toUtf8Bytes('getUserTokenBalance(address)')).slice(0, 10)
 
-            if (transaction.data?.startsWith(balanceOfSigHash)) {
-              return Promise.resolve('0x' + BigInt('0').toString(16))
-            }
-            if (transaction.data?.startsWith(lockingBalanceSigHash)) {
-              return Promise.resolve('0x' + BigInt('0').toString(16))
-            }
-            return Promise.resolve('0x')
-          },
-        } as any),
+              if (transaction.data?.startsWith(balanceOfSigHash)) {
+                return Promise.resolve('0x' + BigInt('0').toString(16))
+              }
+              if (transaction.data?.startsWith(lockingBalanceSigHash)) {
+                return Promise.resolve('0x' + BigInt('0').toString(16))
+              }
+              return Promise.resolve('0x')
+            },
+          } as any),
       )
 
       const mockAllocation: Vesting[] = [
