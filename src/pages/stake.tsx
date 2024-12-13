@@ -13,7 +13,7 @@ const StakePage: NextPage = () => {
   return (
     <>
       <Head>
-        <title>{'Metal L2 Safe – Stake'}</title>
+        <title>Metal L2 Safe – Stake</title>
       </Head>
 
       {isFeatureEnabled === true ? (

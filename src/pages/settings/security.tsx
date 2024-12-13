@@ -8,7 +8,7 @@ const SecurityPage: NextPage = () => {
   return (
     <>
       <Head>
-        <title>{'Metal L2 Safe – Settings – Security'}</title>
+        <title>Metal L2 Safe – Settings – Security</title>
       </Head>
 
       <SettingsHeader />

@@ -26,7 +26,7 @@ const Messages: NextPage = () => {
   return (
     <>
       <Head>
-        <title>{'Metal L2 Safe – Messages'}</title>
+        <title>Metal L2 Safe – Messages</title>
       </Head>
 
       <TxHeader>

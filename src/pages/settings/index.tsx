@@ -17,7 +17,7 @@ const Settings: NextPage = () => {
   return (
     <>
       <Head>
-        <title>{'Metal L2 Safe – Settings'}</title>
+        <title>Metal L2 Safe – Settings</title>
       </Head>
     </>
   )

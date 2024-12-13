@@ -10,7 +10,7 @@ const Modules: NextPage = () => {
   return (
     <>
       <Head>
-        <title>{'Metal L2 Safe – Settings – Modules'}</title>
+        <title>Metal L2 Safe – Settings – Modules</title>
       </Head>
 
       <SettingsHeader />

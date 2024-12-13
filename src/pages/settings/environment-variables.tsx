@@ -7,7 +7,7 @@ const EnvironmentVariablesPage: NextPage = () => {
   return (
     <>
       <Head>
-        <title>{'Metal L2 Safe – Settings – Environment variables'}</title>
+        <title>Metal L2 Safe – Settings – Environment variables</title>
       </Head>
 
       <SettingsHeader />

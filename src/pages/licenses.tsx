@@ -709,7 +709,7 @@ const Licenses: NextPage = () => {
   return (
     <>
       <Head>
-        <title>{'Metal L2 Safe – Licenses'}</title>
+        <title>Metal L2 Safe – Licenses</title>
       </Head>
 
       <main>{IS_OFFICIAL_HOST && <SafeLicenses />}</main>
