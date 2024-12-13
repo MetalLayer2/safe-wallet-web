@@ -1,4 +1,4 @@
-import Safe from '@metalblockchain/safe-protocol-kit'
+import Safe from '@safe-global/protocol-kit'
 
 export async function createSafes(safeConfigurations) {
   const safes = []

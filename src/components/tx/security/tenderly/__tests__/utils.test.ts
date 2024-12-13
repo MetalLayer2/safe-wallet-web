@@ -8,9 +8,9 @@ import {
 } from '@/components/tx/security/tenderly/utils'
 import * as safeContracts from '@/services/contracts/safeContracts'
 import { getMultiSendCallOnlyDeployment, getSafeSingletonDeployment } from '@metalblockchain/safe-deployments'
-import EthSafeTransaction from '@metalblockchain/safe-protocol-kit/dist/src/utils/transactions/SafeTransaction'
-import { ZERO_ADDRESS } from '@metalblockchain/safe-protocol-kit/dist/src/utils/constants'
-import { generatePreValidatedSignature } from '@metalblockchain/safe-protocol-kit/dist/src/utils/signatures'
+import EthSafeTransaction from '@safe-global/protocol-kit/dist/src/utils/transactions/SafeTransaction'
+import { ZERO_ADDRESS } from '@safe-global/protocol-kit/dist/src/utils/constants'
+import { generatePreValidatedSignature } from '@safe-global/protocol-kit/dist/src/utils/signatures'
 import { toBeHex } from 'ethers'
 import * as Web3 from '@/hooks/wallets/web3'
 
@@ -42,12 +42,12 @@ describe('simulation utils', () => {
 
     jest.spyOn(Web3, 'getWeb3ReadOnly').mockImplementation(
       () =>
-        ({
-          getBlock: () =>
-            Promise.resolve({
-              gasLimit: BigInt(30_000_000),
-            }),
-        } as any),
+      ({
+        getBlock: () =>
+          Promise.resolve({
+            gasLimit: BigInt(30_000_000),
+          }),
+      } as any),
     )
   })
   describe('getSimulationPayload', () => {

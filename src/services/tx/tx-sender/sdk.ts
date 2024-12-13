@@ -1,16 +1,16 @@
 import { getSafeSDK } from '@/hooks/coreSDK/safeCoreSDK'
-import type Safe from '@metalblockchain/safe-protocol-kit'
-import { SafeProvider, SigningMethod } from '@metalblockchain/safe-protocol-kit'
+import type Safe from '@safe-global/protocol-kit'
+import { SafeProvider, SigningMethod } from '@safe-global/protocol-kit'
 import {
   generatePreValidatedSignature,
   isSafeMultisigTransactionResponse,
   sameString,
-} from '@metalblockchain/safe-protocol-kit/dist/src/utils'
+} from '@safe-global/protocol-kit/dist/src/utils'
 import type { Eip1193Provider, JsonRpcSigner } from 'ethers'
 import { isWalletRejection, isHardwareWallet, isWalletConnect } from '@/utils/wallets'
 import { OperationType, type SafeTransaction } from '@safe-global/safe-core-sdk-types'
 import { getChainConfig, type SafeInfo } from '@safe-global/safe-gateway-typescript-sdk'
-import { SAFE_FEATURES } from '@metalblockchain/safe-protocol-kit/dist/src/utils/safeVersions'
+import { SAFE_FEATURES } from '@safe-global/protocol-kit/dist/src/utils/safeVersions'
 import { hasSafeFeature } from '@/utils/safe-versions'
 import { createWeb3, getWeb3ReadOnly } from '@/hooks/wallets/web3'
 import { toQuantity } from 'ethers'
@@ -210,8 +210,7 @@ export const prepareTxExecution = async (safeTransaction: SafeTransaction, provi
   if (threshold > signedSafeTransaction.signatures.size) {
     const signaturesMissing = threshold - signedSafeTransaction.signatures.size
     throw new Error(
-      `There ${signaturesMissing > 1 ? 'are' : 'is'} ${signaturesMissing} signature${
-        signaturesMissing > 1 ? 's' : ''
+      `There ${signaturesMissing > 1 ? 'are' : 'is'} ${signaturesMissing} signature${signaturesMissing > 1 ? 's' : ''
       } missing`,
     )
   }
