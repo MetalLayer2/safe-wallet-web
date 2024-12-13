@@ -14,7 +14,7 @@ const PrivacyPolicy: NextPage = () => {
   return (
     <>
       <Head>
-        <title>{'Safe{Wallet} – Privacy policy'}</title>
+        <title>{'Metal L2 Safe – Privacy policy'}</title>
       </Head>
 
       <main>{IS_OFFICIAL_HOST && <SafePrivacyPolicy components={overrideComponents} />}</main>

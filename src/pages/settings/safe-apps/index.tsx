@@ -9,7 +9,7 @@ const SafeAppsPermissionsPage: NextPage = () => {
   return (
     <>
       <Head>
-        <title>{'Safe{Wallet} – Settings – Safe Apps'}</title>
+        <title>{'Metal L2 Safe – Settings – Safe Apps'}</title>
       </Head>
 
       <SettingsHeader />
